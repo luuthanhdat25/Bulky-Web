@@ -1,0 +1,50 @@
+﻿@model List<Category>
+
+
+<div class="container">
+	<div class="row pt-4 pb-3">
+		<div class="col-6">
+			<h2 class="text-primary">Category List</h2>
+		</div>
+		<div class="col-6 text-end">
+			<a asp-action="create" class="btn btn-primary">
+				<i class="bi bi-plus-circle"></i> New Category
+			</a>
+		</div>
+	</div>
+</div>
+
+<table class="table table-bordered table-striped">
+
+	<thead>
+		<tr>
+			<th>
+				Category Name
+			</th>
+			<th>
+				Order
+			</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<th>
+					@item.Name
+				</th>
+				<th>
+					@item.DisplayOrder
+				</th>
+				<th>
+					<div class="w-75 btn-group" role="group">
+						<a asp-action="Category" asp-action="Edit" class="btn-primary mx-2">
+							<i class="bi bi-pencil-square"></i> Edit
+						</a>
+					</div>
+				</th>
+			</tr>
+		}
+	</tbody>
+</table>
