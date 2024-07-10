@@ -1,4 +1,5 @@
-﻿@model List<Category>
+﻿@page
+@model BulkyWebRazor.Pages.Categories.IndexModel
 
 <div class="container">
 	<div class="row pt-4 pb-3">
@@ -6,7 +7,7 @@
 			<h2 class="text-primary">Category List</h2>
 		</div>
 		<div class="col-6 text-end">
-			<a asp-action="create" class="btn btn-primary">
+			<a asp-page="/Categories/Create" class="btn btn-primary">
 				<i class="bi bi-plus-circle"></i> New Category
 			</a>
 		</div>
@@ -27,7 +28,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		@foreach (var item in Model)
+		@foreach (var item in Model.CategoryList)
 		{
 			<tr>
 				<th>
@@ -38,10 +39,10 @@
 				</th>
 				<th>
 					<div class="w-75 btn-group" role="group">
-						<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary mx-2">
+						<a asp-page="/Categories/Edit" asp-route-id="@item.Id" class="btn btn-primary mx-2">
 							<i class="bi bi-pencil-square"></i> Edit
 						</a>
-						<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger mx-2">
+						<a asp-page="/Categories/Delete" asp-route-id="@item.Id" class="btn btn-danger mx-2">
 							<i class="bi bi-trash"></i> Delete
 						</a>
 					</div>
